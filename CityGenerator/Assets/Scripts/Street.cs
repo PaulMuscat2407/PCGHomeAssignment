@@ -15,7 +15,7 @@ public class Street : MonoBehaviour
     }
 
     public void setStreetLength(int length){
-        streetLength = length;
+        streetLength = length/2;
     }
 
     public int getStreetLength(){

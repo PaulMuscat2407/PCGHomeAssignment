@@ -6,12 +6,11 @@ using UnityEngine;
 public class Visualiser : MonoBehaviour
 {
     public LSystemGeneration Lsystem;
-
     List<Vector3> positions = new List<Vector3>();
-    public RoadHelper roadHelper;
 
     private int length = 20;
     private float angle = 90;
+    int counter =0;
 
     public int Length{
         get{
@@ -71,9 +70,10 @@ public class Visualiser : MonoBehaviour
                 break;
                 case EncodingLetters.draw:
                     tempPosition = currentPosition;
-                    currentPosition +=direction * (length*2);
-                    roadHelper.PlaceStreetPositions(tempPosition,Vector3Int.RoundToInt(direction),length);
+                    currentPosition +=direction * length;
+                    CreateRoad(tempPosition,currentPosition,length,direction);
                     Length-= 2;
+                    positions.Add(currentPosition);
                 break;
                 case EncodingLetters.turnRight:
                 direction = Quaternion.AngleAxis(angle,Vector3.up) * direction;
@@ -83,5 +83,25 @@ public class Visualiser : MonoBehaviour
                 break;
             }
         }
+    }
+
+    private void CreateRoad(Vector3 tempPosition, Vector3 currentPosition,int length, Vector3 direction)
+    {
+        Vector3 rotationDirection = currentPosition - tempPosition;
+        
+        GameObject Road = new GameObject();
+        Road.name = "Street "+ counter;  
+        Road.AddComponent<Street>();
+        Road.GetComponent<Street>().setStreetLength(length);
+
+        if(direction == new Vector3(0,0,-1 )||direction == new Vector3(0,0,1)){
+            
+            Road.GetComponent<Street>().setRotation(Quaternion.Euler(0,90,0));
+        }
+        
+        Road.GetComponent<Street>().setPos(Vector3.Lerp(tempPosition,currentPosition,0.5f));
+
+        counter++;
+
     }
 }

@@ -16,12 +16,14 @@ public class materialBuilder
         greyMaterial.color = Color.grey;
         Material randomMaterial = new Material(Shader.Find("Specular"));
         randomMaterial.color = Random.ColorHSV(0f,1f,0f,1f,0f,1f);
-
+        Material portalMaterial = new Material(Shader.Find("Standard"));
+        portalMaterial.color = new Color(0f,230f,255f,100f);
 
         materialsList.Add(blackMaterial);
         materialsList.Add(whiteMaterial);
         materialsList.Add(greyMaterial);
         materialsList.Add(randomMaterial);
+        materialsList.Add(portalMaterial);
 
     }
 

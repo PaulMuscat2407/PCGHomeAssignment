@@ -15,7 +15,11 @@ public class House : MonoBehaviour
     }
 
     void Update(){
+
+        
         RaycastHit hit;
+
+        //Checks if Road is under the houses and removes them
         if (Physics.Raycast(transform.position, Vector3.down, out hit))
         {
             if (hit.collider.tag == "Road")
@@ -24,7 +28,8 @@ public class House : MonoBehaviour
             }
         }
 
-        if (Physics.Raycast(transform.position,Vector3.forward, out hit,0.7f) || Physics.Raycast(transform.position, Vector3.back, out hit,0.7f) ||Physics.Raycast(transform.position,Vector3.left, out hit,0.7f)||Physics.Raycast(transform.position,Vector3.right, out hit,0.7f))
+        //Checks if Houses are clipping, and removes them.
+        if (Physics.Raycast(transform.position,Vector3.forward, out hit,1f) || Physics.Raycast(transform.position, Vector3.back, out hit,1f) ||Physics.Raycast(transform.position,Vector3.left, out hit,1f)||Physics.Raycast(transform.position,Vector3.right, out hit,1f))
         {
             if (hit.collider.tag == "House")
             {
@@ -57,16 +62,18 @@ public class House : MonoBehaviour
         return new Vector3(houseLength*2,houseHeight*2,houseWidth*2);
     }
 
+    //Randomly Chooses Left or Right Side of the roads
     public float GetSide(float position){
         if(Random.value < 0.5f){
-            position += 3;
+            position += 4f;
         }else{
-            position-= 3;
+            position-= 4f;
         }
 
         return position;
     }
 
+    //Creates the house.
     private void CreateHouse(){
         GameObject house = new GameObject();
         house.name = "Building";

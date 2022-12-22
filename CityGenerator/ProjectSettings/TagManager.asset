@@ -3,15 +3,17 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Road
+  - House
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - RoadLayer
   - Water
   - UI
-  - 
+  - HouseLayer
   - 
   - 
   - 

@@ -14,11 +14,14 @@ public class materialBuilder
         whiteMaterial.color = Color.white;
         Material greyMaterial = new Material(Shader.Find("Specular"));
         greyMaterial.color = Color.grey;
+        Material randomMaterial = new Material(Shader.Find("Specular"));
+        randomMaterial.color = Random.ColorHSV(0f,1f,0f,1f,0f,1f);
 
 
         materialsList.Add(blackMaterial);
         materialsList.Add(whiteMaterial);
         materialsList.Add(greyMaterial);
+        materialsList.Add(randomMaterial);
 
     }
 

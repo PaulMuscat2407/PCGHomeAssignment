@@ -13,9 +13,9 @@ public class LSystemGeneration : MonoBehaviour
     private bool randomIgnoreRuleModifier;
 
     private void Awake() {
-        randomIgnoreRuleModifier = (UnityEngine.Random.value > 0.65f);
-        iterationLimit = UnityEngine.Random.Range(2,6);
-        chanceToIgnoreRule =  UnityEngine.Random.Range(0f,1.0f);
+        randomIgnoreRuleModifier = (UnityEngine.Random.value >= 0.5f);
+        iterationLimit = UnityEngine.Random.Range(1,7);
+        chanceToIgnoreRule =  UnityEngine.Random.Range(0f,1f);
     }
     public string GenerateSentence(string word = null){
         if(word == null){

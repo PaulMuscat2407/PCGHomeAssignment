@@ -29,7 +29,7 @@ public class House : MonoBehaviour
         }
 
         //Checks if Houses are clipping, and removes them.
-        if (Physics.Raycast(transform.position,Vector3.forward, out hit,1f) || Physics.Raycast(transform.position, Vector3.back, out hit,1f) ||Physics.Raycast(transform.position,Vector3.left, out hit,1f)||Physics.Raycast(transform.position,Vector3.right, out hit,1f))
+        if (Physics.Raycast(transform.position,Vector3.forward, out hit,1.02f) || Physics.Raycast(transform.position, Vector3.back, out hit,1.02f) ||Physics.Raycast(transform.position,Vector3.left, out hit,1.02f)||Physics.Raycast(transform.position,Vector3.right, out hit,1.02f))
         {
             if (hit.collider.tag == "House")
             {
@@ -81,5 +81,34 @@ public class House : MonoBehaviour
         house.AddComponent<Cube>();
         house.GetComponent<Cube>().setCubeSize(houseLength,houseHeight,houseWidth);
         house.GetComponent<Cube>().setSubmeshIndex(3);
+
+        GameObject door = new GameObject();
+        door.transform.parent = this.transform;
+        door.transform.position = new Vector3(-houseLength + 0.05f,-houseHeight + 0.5f, 0);
+        door.AddComponent<Cube>();
+        door.GetComponent<Cube>().setCubeSize(0.2f,1.4f,0.5f);
+        door.GetComponent<Cube>().setSubmeshIndex(2);
+
+        GameObject backDoor = new GameObject();
+        backDoor.transform.parent = this.transform;
+        backDoor.transform.position = new Vector3(houseLength - 0.05f,-houseHeight + 0.5f, 0);
+        backDoor.AddComponent<Cube>();
+        backDoor.GetComponent<Cube>().setCubeSize(0.2f,1.4f,0.5f);
+        backDoor.GetComponent<Cube>().setSubmeshIndex(2);
+
+        GameObject WindowFB = new GameObject();
+        WindowFB.transform.parent = this.transform;
+        WindowFB.transform.position = new Vector3(0,0.8f, 0);
+        WindowFB.AddComponent<Cube>();
+        WindowFB.GetComponent<Cube>().setCubeSize(houseLength+0.05f,0.5f,0.7f);
+        WindowFB.GetComponent<Cube>().setSubmeshIndex(1);
+
+        GameObject WindowS = new GameObject();
+        WindowS.transform.parent = this.transform;
+        WindowS.transform.position = new Vector3(0,0.8f, 0);
+        WindowS.AddComponent<Cube>();
+        WindowS.GetComponent<Cube>().setCubeSize(0.7f,0.5f,houseWidth+0.05f);
+        WindowS.GetComponent<Cube>().setSubmeshIndex(1);
+
     }
 }

@@ -84,9 +84,13 @@ public class RandomHeights : MonoBehaviour
     [SerializeField]
     private int maxClouds = 10;
 
+    [SerializeField]
+    private Light Sun;
+
 
     void Start()
     {
+        Sun.transform.rotation = Quaternion.Euler(Random.Range(0,361),0,0);
         if (terrain == null)
         {
             terrain = this.GetComponent<Terrain>();
@@ -102,6 +106,9 @@ public class RandomHeights : MonoBehaviour
         AddTrees();
         AddWater();
         AddClouds();
+    }
+    private void Update() {
+        Sun.transform.Rotate(10 * Time.deltaTime,0,0);
     }
 
     void GenerateHeights()

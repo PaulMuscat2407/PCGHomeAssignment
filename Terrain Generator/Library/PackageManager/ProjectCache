@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638074920991758309
-    m_Hash: 2760825460
+      ticks: 638091340814522121
+    m_Hash: 2653564402
   m_LockFileStatus:
     m_FilePath: C:/Users/paulm/Desktop/PCGHomeAssignment/Terrain Generator/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638074920992113307
-    m_Hash: 164275714
+      ticks: 638091340814527098
+    m_Hash: 1662145103
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -461,11 +461,13 @@ m_ResolvedPackages:
     - 3.0.15
     - 3.0.16
     - 3.0.17
+    - 3.0.18
     compatible:
     - 3.0.15
     - 3.0.16
     - 3.0.17
-    verified: 3.0.17
+    - 3.0.18
+    verified: 3.0.18
   dependencies:
   - name: com.unity.ext.nunit
     version: 1.0.6
